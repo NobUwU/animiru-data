@@ -21,15 +21,7 @@ const Home: React.FC = () => {
       </div>
       <div id="users">
         {
-          users.filter((u) => {
-            if (search.length) {
-              if (u.username.toLowerCase().includes(search) || u.userId.toLowerCase().includes(search)) return true
-
-              return false
-            }
-
-            return true
-          }).map((user, i) => (
+          users.map((user, i) => (
             <p key={i}>{user.username}</p>
           ))
         }
