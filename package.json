@@ -1,11 +1,10 @@
 {
   "name": "serverless-react-boilerplate",
   "version": "1.0.0",
-  "description": "Serverless React Webpack Boilerplate",
-  "homepage": "https://github.com/NobUwU/serverless-react-boilerplate",
+  "description": "Find your old animiru data.",
   "author": "Nobu",
-  "license": "MIT",
-  "repository": "https://github.com/NobUwU/serverless-react-boilerplate",
+  "license": "AGPL-3.0-or-later",
+  "repository": "https://github.com/NobUwU/animiru-data",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --mode=development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
