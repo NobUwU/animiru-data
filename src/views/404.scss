@@ -1,0 +1,15 @@
+div#fourofour {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    // position: absolute;
+    font-size: 15rem;
+    color: rgba(255, 255, 255, 0.05);
+  }
+}

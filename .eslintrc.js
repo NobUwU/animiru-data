@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
 
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
 
   parserOptions: {
     sourceType: 'module',
@@ -17,9 +17,9 @@ module.exports = {
   },
   
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
 
   plugins: [
@@ -27,12 +27,13 @@ module.exports = {
   ],
 
   rules: {
-    "@typescript-eslint/explicit-module-boundary-types": 0,
-    "@typescript-eslint/no-unused-vars": 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/no-unused-vars': 0,
+    'quotes': ['error', 'single'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'semi': ['error', 'never'],
-    "indent": ["error", 2],
+    'indent': ['error', 2],
     'array-bracket-newline': ['off', 'consistent'],
     'array-element-newline': ['off', {
       multiline: true,

@@ -1,8 +1,15 @@
 import React from 'react'
 
-const  FourOFour: React.FC = () => {
+import './404.scss'
+
+const FourOFour: React.FC = () => {
   return (
-    <h1>404</h1>
+    <div id="fourofour">
+      {
+        new Array(3).fill(undefined)
+          .map((_, i) => <h1 key={i}>404</h1>)
+      }
+    </div>
   )
 }
 
