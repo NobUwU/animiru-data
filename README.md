@@ -1,6 +1,8 @@
 # animiru-data
 Allow's you to look at your old animiru data before major changes occured!
 
+https://nobuwu.github.io/animiru-data/
+
 ## Q&A
 ___
 **q:** How do I watch Anime?
