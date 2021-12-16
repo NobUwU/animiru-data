@@ -8,11 +8,12 @@ import {
 import Navbar from '../components/Navbar'
 
 import Home from '../views/Home'
+import User from '../views/User'
 import About from '../views/About'
 import NotFound from '../views/404'
 
 export default () => (
-  <BrowserRouter>
+  <BrowserRouter basename='/animiru-data'>
     <Navbar />
     <Switch>
       <Route exact path='/'>
@@ -22,7 +23,7 @@ export default () => (
         <About />
       </Route>
       <Route exact path='/users/:id'>
-        <Home />
+        <User />
       </Route>
       <Route path='*' component={NotFound} />
     </Switch>
