@@ -6,6 +6,7 @@
     "declaration": false,
     "baseUrl": ".",
     "sourceMap": true,
+    "resolveJsonModule": true,
     "lib": ["DOM", "ES2020", "WebWorker", "WebWorker.ImportScripts"],
     "allowSyntheticDefaultImports": true,
     "strictFunctionTypes": false,

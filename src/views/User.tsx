@@ -1,13 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Data } from '../data'
+import {
+  Data, gogoUrl,
+} from '../data'
 
 import './404.scss'
 import './User.scss'
 
 const FourOFour: React.FC = () => {
   return (
-    <div id="fourofour">
+    <div id='fourofour'>
       {
         new Array(3).fill(undefined)
           .map((_, i) => <h1 key={i}>404</h1>)
@@ -23,13 +25,18 @@ const User: React.FC = () => {
   
   const user = users.find((u) => u.userId === id)
   const userAnime = episodes.filter((u) => u.userId === user?.userId)
-  const userBookmark = episodes.filter((u) => u.userId === user?.userId)
+  const userBookmark = bookmarks.filter((u) => u.userId === user?.userId)
+
+  function newLocation(url: string, blank = false): void {
+    if (blank) window.open(url)
+    else window.location.replace(url)
+  }
 
   if (user) {
     return (
-      <div id="user">
-        <div className="content">
-          <div className="banner">
+      <div id='user'>
+        <div className='content'>
+          <div className='banner'>
             {
               user.banner
                 ? <img
@@ -52,14 +59,48 @@ const User: React.FC = () => {
                 t.src = 'https://cdn.discordapp.com/embed/avatars/5.png'
               }}
             />
-            <p className="id">{user.userId}</p>
+            <p className='id'>{user.userId}</p>
           </div>
           <div className='userInfo'>
             <h1>{user.username}<span>#{user.discriminator}</span></h1>
-            <div className="divider"></div>
-            <div className="anime">
-              <h1>Bookmarks</h1>
-              <h1>Watched</h1>
+            <div className='divider'></div>
+            <div className='anime'>
+              {/* <h1>Bookmarks</h1> */}
+              <div className='bookmarks'>
+                <h1>Bookmarks</h1>
+                <div className='watchedContent'>
+                  {
+                    userBookmark.map((anim, i) => (
+                      <div className='watchedTitle' key={i} onClick={() => newLocation(gogoUrl + 'category/' + anim.id, true)}>
+                        <img src={anim.img} alt={anim.title} />
+                        <div className='dim'></div>
+                        <div className='titleInfo'>
+                          <p></p>
+                          <p className='episodeName'>{anim.title}</p>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+              <br />
+              <div className='watched'>
+                <h1>Watched</h1>
+                <div className='watchedContent'>
+                  {
+                    userAnime.map((anim, i) => (
+                      <div className='watchedTitle' key={i} onClick={() => newLocation(gogoUrl + anim.id + '-episode-' + anim.episode, true)}>
+                        <img src={anim.img} alt={anim.title} />
+                        <div className='dim'></div>
+                        <div className='titleInfo'>
+                          <p className='episodeNum'>{anim.episode}</p>
+                          <p className='episodeName'>{anim.title}</p>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
             </div>
           </div>
         </div>

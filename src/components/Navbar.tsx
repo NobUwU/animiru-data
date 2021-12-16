@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <div id='navbar'>
       <div className='content'>
         <div className='nav-button home' onClick={() => push('/')}>
-          <img src='/logo.webp' alt='Animiru Logo' />
+          <img src='logo.webp' alt='Animiru Logo' />
         </div>
         <div className='nav-button end' onClick={() => push('/about')}>
           <Help />

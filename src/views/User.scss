@@ -1,3 +1,5 @@
+@import '~mixins/breakpoints.scss';
+
 div#user {
   display: flex;
   justify-content: center;
@@ -22,6 +24,9 @@ div#user {
         width: 100%;
         height: 100%;
       }
+      @include sm {
+        height: 10rem;
+      }
     }
     div.avatar {
       margin-top: -7rem;
@@ -43,6 +48,13 @@ div#user {
         font-size: 0.8rem;
         opacity: 20%;
       }
+      @include sm {
+        margin-top: -3.5rem;
+        img {
+          width: 8rem;
+          height: 8rem;
+        }
+      }
     }
     div.userInfo {
       width: 100%;
@@ -57,6 +69,15 @@ div#user {
           font-size: 2.6rem;
         }
       }
+      @include sm {
+        padding: 0.5rem 1rem 1rem 1rem;
+        h1 {
+          font-size: 1.8rem;
+          span {
+            font-size: 1.9rem;
+          }
+        }
+      }
       div.divider {
         margin: 0.8rem 0 0.8rem 0;
         width: 100%;
@@ -64,7 +85,69 @@ div#user {
         background-color: rgba(255, 255, 255, 0.05);
       }
       div.anime {
-        h1 {font-size: 1.5rem;}
+        div.watched, div.bookmarks {
+          h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+          div.watchedContent {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+            gap: 0.5rem;
+            div.watchedTitle {
+              position: relative;
+              img {
+                border-radius: 8px;
+                object-fit: cover;
+                object-position: center center;
+                width: 100%;
+                height: 13rem;
+                @include sm {
+                  height: 14rem;
+                }
+              }
+              div.dim {
+                position: absolute;
+                z-index: 998;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent, #141414);
+                opacity: 100%;
+              }
+              div.titleInfo {
+                position: absolute;
+                z-index: 999;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0.5rem;
+                p.episodeNum {
+                  align-self: flex-end;
+                  background-color: #000;
+                  padding: 0.2rem;
+                  border-radius: 8px;
+                  min-width: 1.8rem;
+                  height: auto;
+                  text-align: center;
+                  // color: #ff69b4;
+                }
+              }
+              transition: transform 0.2s ease;
+              &:hover {
+                cursor: pointer;
+                transition: transform 0.2s ease;
+                transform: scale(1.05);
+              }
+            }
+          }
+        }
       }
     }
   }
